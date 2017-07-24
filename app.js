@@ -10,7 +10,7 @@ var favicon = require('serve-favicon')
 
 var index = require('./server/routes/index');
 
-var app = express(); 
+var app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
