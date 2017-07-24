@@ -3,10 +3,31 @@ const router = express.Router()
 const knex = require('../db')
 var os = require('os');
 var cpuStat = require('cpu-stat');
+var parseString = require('xml2js').parseString;
 
 router.get('/size', (req, res, next) => {
   require('child_process').exec("df -h ~ | grep -vE '^Filesystem|shm|boot' |  awk '{ print +$2 }'", function(err, resp) {
     res.json(resp);
+  });
+})
+
+router.get('/memdetails', (req, res, next) => {
+  require('child_process').exec("system_profiler SPMemoryDataType -xml", function(err, resp) {
+    parseString(resp, function(err, result) {
+      let speed = result.plist.array[0].dict[0].array[1].dict[0].array[0].dict[0].string[5];
+      let size = result.plist.array[0].dict[0].array[1].dict[0].array[0].dict[0].string[4];
+      let status = result.plist.array[0].dict[0].array[1].dict[0].array[0].dict[0].string[6];
+      let type = result.plist.array[0].dict[0].array[1].dict[0].array[0].dict[0].string[7];
+      // console.log("speed, size, status, type =", speed, size, status, type);
+      let finalResult = {
+        speed: speed,
+        size: size,
+        status: status,
+        type: type
+      }
+      //console.log('final result is ', finalResult);
+      res.json(finalResult);
+    })
   });
 })
 

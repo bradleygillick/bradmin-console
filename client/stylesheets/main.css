@@ -12,7 +12,7 @@ body.fade-out {
 }
 
 main {
-  margin-top: 10vh;
+  margin-top: 5vh;
   height: 80vh;
 }
 
@@ -239,7 +239,19 @@ small {
 }
 
 .manual-center {
-    margin-left: 35vw;
-    margin-top: 40vh;
-    width: 60%;
-    padding: 10px;
+  margin-left: 30.5vw;
+  margin-top: 40vh;
+  width: 50%;
+  padding: 10px;
+}
+
+.doc-doc {
+  line-height: 170%;
+}
+
+.tech1 {
+  padding-top: 6em;
+}
+.tech2 {
+    padding-top: 3.5em;
+}

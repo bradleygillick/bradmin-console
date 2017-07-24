@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 require("dotenv").load();
 var os = require('os');
 var cpuStat = require('cpu-stat');
+var favicon = require('serve-favicon')
 
 var index = require('./server/routes/index');
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 app.use(cookieParser());
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, './client')));
 app.use(express.static(path.join(__dirname, './node_modules')));
 //app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
