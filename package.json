@@ -12,6 +12,7 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-moment": "^1.0.1",
+    "angular-ui-router": "^1.0.0-beta.3",
     "body-parser": "~1.15.2",
     "bootstrap": "^3.3.7",
     "cookie-parser": "~1.4.3",
@@ -25,7 +26,8 @@
     "morgan": "~1.7.0",
     "pg": "^6.2.2",
     "serve-favicon": "~2.3.0",
-    "smoothie": "^1.29.1"
+    "smoothie": "^1.29.1",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {},
   "repository": {

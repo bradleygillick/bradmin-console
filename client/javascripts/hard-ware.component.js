@@ -2,14 +2,14 @@
   'use strict'
 
   angular.module('app')
-    .component('hardware', {
-      templateUrl: '/javascripts/hwr.html',
-      controller: controller,
+    .component('hardWare', {
+      templateUrl: '/javascripts/hard-ware.template.html',
+      controller: controller
     })
 
-  controller.$inject = ['$http', '$window', 'moment']
+  controller.$inject = ['$http', '$stateParams', '$state', '$window', 'moment']
 
-  function controller($http, $window) {
+  function controller($http, $stateParams, $state, $window) {
     const vm = this
 
     vm.$onInit = onInit
@@ -33,6 +33,7 @@
     };
 
     function getRAM() {
+      getRamStats();
       return [vm.time, vm.ram];
     };
 
@@ -88,6 +89,15 @@
       })
     }
 
+    function getRamStats() {
+      $http.get('/api/hwvalues/memdetails').then((response) => {
+        vm.ramSpeed = response.data.speed;
+        vm.ramSize = Number((response.data.size[0]))*2;
+        vm.ramStatus = response.data.status;
+        vm.ramType = response.data.type;
+      })
+    }
+
     function getDiskSize() {
       $http.get('/api/hwvalues/size').then(function (result) {
         vm.size = result.data;
@@ -103,6 +113,7 @@
       vm.diskUsed = (vm.used / vm.size) * 100;
       vm.chart.options.data[0].dataPoints[1].y = vm.unused.toFixed(2);
       vm.chart.options.data[0].dataPoints[2].y = vm.diskUsed.toFixed(2);
+      vm.chart.options.title.text = `Size: ${vm.size} GB`;
       vm.chart.render();
     })
 
