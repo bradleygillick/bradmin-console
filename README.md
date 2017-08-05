@@ -3,10 +3,10 @@
 The brAdministrator Console is a Resource Monitor for the local machine.
 
 # Deployment
-Clone this repo.
-CD in to project directory.
-`npm install`
-`npm start dev`
+* Clone this repo.
+* CD in to project directory.
+* Run `npm install` in the terminal
+* Run `npm start dev` in the terminal
 
 ## Built with
 
@@ -17,7 +17,7 @@ CD in to project directory.
 
 ## Author
 
-* **Bradley Gillick** - *Full Stack* - [github handle](https://github.com/bradleygillick)
+* **Bradley Gillick** - *Full Stack*
 
 ## License
 
