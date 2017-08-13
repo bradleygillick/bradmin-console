@@ -1,6 +1,6 @@
 # brAdministrator-console
 
-The brAdministrator Console is a Resource Monitor for the local machine.
+The brAdministrator Console is a Resource Monitor for your local Mac.
 
 # Deployment
 * Clone this repo.
