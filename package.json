@@ -4,7 +4,7 @@
   "description": "A SysAdmin Console for the Local Machine",
   "main": "server/server.js",
   "scripts": {
-    "start": "node ./server/bin/www",
+    "start": "nodemon ./server/bin/www",
     "dev": "nodemon ./server/bin/www"
   },
   "author": "Bradley Gillick",
@@ -12,7 +12,7 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-moment": "^1.0.1",
-    "angular-ui-router": "^1.0.0-beta.3",
+    "angular-ui-router": "z",
     "body-parser": "~1.15.2",
     "bootstrap": "^3.3.7",
     "cookie-parser": "~1.4.3",
